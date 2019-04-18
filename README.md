@@ -41,6 +41,8 @@ namespace ItaintBoring
                        EG:- IF ACCOUNT ENTITY ATTRIBUTE GET UPDATES TARGET= ACCOUNT
                             IF CONTCAT ,,           ;;              TARGET=CONTCAT
                  //(IN ABOVE EXAMPLE WE ARE CHECKING A VALIDATION UP ON UPDATE AN ATTRIBUTE)
+                 
+                 ****IMP-- FOR for the “Create” and “Update” plugins, you will always have a “Target”, and it will be of “Entity” type.                      For the “Delete” plugins, you will also have a “Target”, but it will be of “EntityReference” type.
                 
                 
                 {
@@ -50,3 +52,17 @@ namespace ItaintBoring
         
     }
 }
+
+*********Importent***************
+We don’t always need an Organization Service in the plugins - we can get “Target” from the context, we can get the attributes, we can raise exceptions. We can write the whole validation plugin without ever having to create an Organization Service,
+
+
+// WE USE SAME SERVICEPROVIDER PASSES BY THE EXECUTE METHORD TO get the OrganizationServices in order to access the OrganizationServices thet required to get the DB access in dynamics CRM
+
+IOrganizationServiceFactory serviceFactory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+OrganizationService service = serviceFactory.CreateOrganizationService(context.UserId);
+
+
+
+
+
