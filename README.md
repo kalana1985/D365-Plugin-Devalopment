@@ -83,6 +83,22 @@ taskrecord.Attribute.Add("regardingobjectId", new EntityRefarance("contact",cont
 Guid taskGuid=service.Create(taskRecord);
 
 
+service.Retrive()// Requires a GUID of the record
+Servive.RetriveMultipal()// Required Quirery
+
+QueryExpression query=new QueryExpresson("contact")// pass the entity logical name
+
+query.columset=new ColumSet(new string[]{"emailaddress1"});// use coulmset to specify the attribute , creates a new arrey 
+
+
+// TO USE QUERRY YOU HAVE TO ADD, USING MICROSOFT.XRM.SDK.QUERY
+
+YOU CAN RETRIVE DATA USING 
+1 USING RETRIVE
+2 QUERRY EXPRESSION 
+3 QUEY BY ATTRIBUTE
+4 FETCH XML
+5 LINQ
 
 
 
